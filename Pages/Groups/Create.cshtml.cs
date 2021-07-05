@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Giercownia.NET_JS.Data;
 using Giercownia.NET_JS.Models;
 using Microsoft.AspNetCore.Identity;
+using System.Text.Json;
 
 namespace Giercownia.NET_JS.Pages.Groups
 {
@@ -15,6 +16,7 @@ namespace Giercownia.NET_JS.Pages.Groups
     {
         private readonly Giercownia.NET_JS.Data.ApplicationDbContext _context;
         private readonly UserManager<AppUser> _userManager;
+
 
         public CreateModel(Giercownia.NET_JS.Data.ApplicationDbContext context, UserManager<AppUser> userManager)
         {
@@ -38,10 +40,15 @@ namespace Giercownia.NET_JS.Pages.Groups
 
             if (!ModelState.IsValid)
             {
+                System.Diagnostics.Debug.WriteLine(JsonSerializer.Serialize(ModelState));
+
                 return Page();
             }
 
             _context.Group.Add(Group);
+            //AppUser CurrentUser = await _userManager.GetUserAsync(User);
+            //CurrentUser.Group = Group;
+            //CurrentUser.GroupId = Group.Id;
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

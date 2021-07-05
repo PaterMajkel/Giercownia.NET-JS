@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,8 +15,8 @@ namespace Giercownia.NET_JS.Models
         [MaxLength(50)]
         public string Name { get; set; }
         [Required]
-        public string OwnerId { get; set; }
-        public AppUser AppUser { get; set; }
+        [DisplayName("Owner")]
+        public string? OwnerId { get; set; }
         public ICollection<AppUser> AppUsers { get; set; }
     }
 }

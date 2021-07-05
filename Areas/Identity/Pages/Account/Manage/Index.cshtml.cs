@@ -105,12 +105,6 @@ namespace Giercownia.NET_JS.Areas.Identity.Pages.Account.Manage
                     return RedirectToPage();
                 }
             }
-            var groupId = user.GroupId;
-            if (Input.GroupId != groupId)
-            {
-                user.GroupId = Input.GroupId;
-                
-            }
 
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
