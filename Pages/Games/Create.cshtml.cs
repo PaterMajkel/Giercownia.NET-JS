@@ -14,9 +14,9 @@ namespace Giercownia.NET_JS.Pages.Games
     [Authorize]
     public class CreateModel : PageModel
     {
-        private readonly GameGroupContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public CreateModel(GameGroupContext context)
+        public CreateModel(ApplicationDbContext context)
         {
             _context = context;
         }

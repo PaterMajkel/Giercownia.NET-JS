@@ -17,5 +17,9 @@ namespace Giercownia.NET_JS.Data
         {
             base.OnModelCreating(modelBuilder);
         }
+        public DbSet<Group> Group { get; set; }
+        public DbSet<Score> Score { get; set; }
+        public DbSet<Game> Game { get; set; }
+        public DbSet<AppUser> AppUser { get; set; }
     }
 }

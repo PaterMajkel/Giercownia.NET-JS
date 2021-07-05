@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Giercownia.NET_JS.Data;
 using Giercownia.NET_JS.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace Giercownia.NET_JS.Pages.Groups
 {
     public class CreateModel : PageModel
     {
-        private readonly Giercownia.NET_JS.Data.GameGroupContext _context;
+        private readonly Giercownia.NET_JS.Data.ApplicationDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public CreateModel(Giercownia.NET_JS.Data.GameGroupContext context)
+        public CreateModel(Giercownia.NET_JS.Data.ApplicationDbContext context, UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public IActionResult OnGet()
@@ -31,6 +34,8 @@ namespace Giercownia.NET_JS.Pages.Groups
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+            Group.OwnerId = _userManager.GetUserId(HttpContext.User);
+
             if (!ModelState.IsValid)
             {
                 return Page();

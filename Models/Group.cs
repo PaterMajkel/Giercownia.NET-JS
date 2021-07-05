@@ -13,6 +13,9 @@ namespace Giercownia.NET_JS.Models
         [Required]
         [MaxLength(50)]
         public string Name { get; set; }
+        [Required]
+        public string OwnerId { get; set; }
+        public AppUser AppUser { get; set; }
         public ICollection<AppUser> AppUsers { get; set; }
     }
 }

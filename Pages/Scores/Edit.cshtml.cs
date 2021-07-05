@@ -13,9 +13,9 @@ namespace Giercownia.NET_JS.Pages.Scores
 {
     public class EditModel : PageModel
     {
-        private readonly Giercownia.NET_JS.Data.GameGroupContext _context;
+        private readonly Giercownia.NET_JS.Data.ApplicationDbContext _context;
 
-        public EditModel(Giercownia.NET_JS.Data.GameGroupContext context)
+        public EditModel(Giercownia.NET_JS.Data.ApplicationDbContext context)
         {
             _context = context;
         }

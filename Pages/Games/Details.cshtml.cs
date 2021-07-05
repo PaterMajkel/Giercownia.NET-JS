@@ -12,9 +12,9 @@ namespace Giercownia.NET_JS.Pages.Games
 {
     public class DetailsModel : PageModel
     {
-        private readonly Giercownia.NET_JS.Data.GameGroupContext _context;
+        private readonly Giercownia.NET_JS.Data.ApplicationDbContext _context;
 
-        public DetailsModel(Giercownia.NET_JS.Data.GameGroupContext context)
+        public DetailsModel(Giercownia.NET_JS.Data.ApplicationDbContext context)
         {
             _context = context;
         }

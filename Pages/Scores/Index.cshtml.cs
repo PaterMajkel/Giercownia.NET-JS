@@ -12,9 +12,9 @@ namespace Giercownia.NET_JS.Pages.Scores
 {
     public class IndexModel : PageModel
     {
-        private readonly Giercownia.NET_JS.Data.GameGroupContext _context;
+        private readonly Giercownia.NET_JS.Data.ApplicationDbContext _context;
 
-        public IndexModel(Giercownia.NET_JS.Data.GameGroupContext context)
+        public IndexModel(Giercownia.NET_JS.Data.ApplicationDbContext context)
         {
             _context = context;
         }

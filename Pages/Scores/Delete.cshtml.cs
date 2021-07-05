@@ -12,9 +12,9 @@ namespace Giercownia.NET_JS.Pages.Scores
 {
     public class DeleteModel : PageModel
     {
-        private readonly Giercownia.NET_JS.Data.GameGroupContext _context;
+        private readonly Giercownia.NET_JS.Data.ApplicationDbContext _context;
 
-        public DeleteModel(Giercownia.NET_JS.Data.GameGroupContext context)
+        public DeleteModel(Giercownia.NET_JS.Data.ApplicationDbContext context)
         {
             _context = context;
         }
