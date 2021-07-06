@@ -23,7 +23,8 @@
 @foreach (var item in Model.Game) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                
+                <a asp-page=@String.Format("./" + item.Name.Replace(" ", "")) > @Html.DisplayFor(modelItem => item.Name)</a>
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>

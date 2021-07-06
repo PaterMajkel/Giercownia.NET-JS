@@ -1,0 +1,20 @@
+﻿@page
+@model Giercownia.NET_JS.Pages.Games.DiceGameModel
+@{
+    ViewData["Title"] = "Dice Game";
+}
+@using Giercownia.NET_JS.Models
+@inject UserManager<AppUser> UserManager
+
+    <form method="post">
+        <input asp-for="Score.Points" value="0" class="form-control" hidden />
+        <input asp-for="Score.AppUserId" value=@UserManager.GetUserId(HttpContext.User) hidden />
+        <input asp-for="Score.GameId" value=@Model.Game.Id hidden />
+
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
